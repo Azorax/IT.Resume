@@ -1,0 +1,161 @@
+% author: Peter Bui
+% created: 15/03/19
+% modified: 15/03/19
+
+\documentclass[a4paper, 11pt, draft]{memoir}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Document Settings
+%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\familydefault}{bch}	% font
+
+\pagestyle{empty}				   % no pagenumbering
+\setlength{\parindent}{0pt}			% no paragraph indentation
+
+%Packages
+\usepackage{fontawesome}                                    % icon pack
+\usepackage{flowfram}                                       % column layout
+\usepackage[top=1cm,left=1cm,right=1cm,bottom=1cm]{geometry}% margins
+\usepackage{graphicx}										% figures
+\usepackage{url}											% URLs
+\usepackage[usenames,dvipsnames]{xcolor}					% color
+\usepackage{multicol}										% columns env.
+	\setlength{\multicolsep}{0pt}
+\usepackage{paralist}										% compact lists
+\usepackage{tikz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create column layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define length commands
+
+\setlength{\columnsep}{\baselineskip}
+
+% frame setup (flowfram package)
+% left frame
+\newflowframe{0.28\textwidth}{\textheight}{0pt}{0pt}[left]
+	\newlength{\pageSeparator}
+	\setlength{\pageSeparator}{0.28\textwidth}
+	\addtolength{\pageSeparator}{1\columnsep}
+
+% small static frame for the vertical line
+\newstaticframe{1.5pt}{\textheight}{\pageSeparator}{0pt}
+ 
+% content of the static frame
+\begin{staticcontents}{1}
+\hfill
+\tikz{%
+	\draw[loosely dashed,color=Violet,line width=1.5pt,yshift=0]
+	(0,0) -- (0,\textheight);}%
+\hfill\mbox{}
+\end{staticcontents}
+ 
+% right frame
+\addtolength{\pageSeparator}{1.5pt}
+\addtolength{\pageSeparator}{1\columnsep}
+\newflowframe{0.63\textwidth}{\textheight}{\pageSeparator}{0pt}[main01]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define macros (for convience)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Sep}{\vspace{1.0em}}
+\newcommand{\SmallSep}{\vspace{0.5em}}
+
+\newenvironment{AboutMe}
+	{\ignorespaces\textbf{\color{RoyalBlue} About me}}
+	{\Sep\ignorespacesafterend}
+	
+\newcommand{\CVSection}[1]
+	{\Large\textbf{#1}\par
+	\SmallSep\normalsize\normalfont}
+
+\newcommand{\CVItem}[1]
+	{\textbf{\color{RoyalBlue} #1}}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Begin document
+%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    
+%Left frame
+\begin{flushright}\small
+    \text{0415 030 900} \faMobile \\
+    \text{peterbui1995@gmail.com} \faEnvelopeO \\
+    \text{Azorax} \faGithub\\
+    \text{/in/peter-bui95} \faLinkedin\\
+\end{flushright}\normalsize
+\framebreak
+
+%Right frame
+\Huge\bfseries {\color{RoyalBlue} Peter Bui} \\
+
+\normalsize\normalfont
+
+
+    
+    % Experience
+    \CVSection{Experience}
+    \CVItem{Dec 2018 - present, Office Bearer (Queer), Monash Student Association}\\
+    \begin{itemize}
+        \item Managed social events of up to 200 attendees by leading a team of event helpers
+        \item Provided emotional support for those experiencing distress
+        \item Resolved conflicts through mediation by objectively taking in facts and making sure that both parties manage to achieve the outcome they are satisfied with
+        \item Represented the university queer community through student activism
+    \end{itemize}
+    \SmallSep
+    
+    \CVItem{2018 - present, Volunteer Firefighter, CFA}\\
+    \begin{itemize}
+        \item Operated under situations of extreme stream in a rational manner by following preset protocols
+    \end{itemize}
+    \SmallSep
+
+    \CVItem{2017, Paralegal, L&T Associates}\\
+    \begin{itemize}
+        \item Acted in a client-facing role as a client's main point of contact for the entire duration of the client's case
+        \item Demonstrated understanding of Victorian Civil and Administration Tribunal procedures by writing and submitting a 'VCAT 101' file which was was then used by the firm
+    \end{itemize}
+    \Sep
+    
+    % Education
+    \CVSection{Education}
+    \CVItem{2018 - present, Monash University}\\
+    B. Computer Science, 79 WAM
+    \SmallSep
+    
+    \CVItem{2013 - 2017, University of Adelaide}\\
+    B. Law
+    \Sep
+    
+    % Skills
+    \CVSection{Technical Skills}
+    \CVItem{Platforms}
+    \begin{multicols}{2}
+    \begin{compactitem}[\color{RoyalBlue}$\circ$]
+        \item Git
+    \end{compactitem}
+    \end{multicols}
+    \SmallSep
+    
+    \CVItem{Languages}
+    \begin{multicols}{2}
+    \begin{compactitem}[\color{RoyalBlue}$\circ$]
+        \item Python
+        \item Java
+        \item LaTeX
+        \item SQL
+    \end{compactitem}
+    \end{multicols}
+    \Sep 
+
+    % References
+    \CVSection{References}
+    References available upon request.
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % End document
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\end{document}
